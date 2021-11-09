@@ -1,0 +1,2 @@
+meraki==1.15.0
+pyqrcode==1.2.1
