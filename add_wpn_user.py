@@ -13,6 +13,7 @@ import time
 USERNAME = "" # Username to create
 PASSPHRASE = str(time.mktime(datetime.today().timetuple())) # Use epoch time for PoC
 SSID_NUMBER = 0 # As a PoC this assumes SSID0
+SSID_NAME = ""
 DEFAULT_GP_NAME = "Default" # Group policy to clone settings from
 GP_PREFIX = "GP_" # Prefix to append before new GP's
 MERAKI_NETWORK_ID = '' # Network ID of your network
@@ -67,7 +68,7 @@ for GroupPol in GroupPols:
             )
 
             # Output QR code and passphrase info
-            qr = pq.create(f'WIFI:S:Kar-Dorm;T:WPA;P:' + PASSPHRASE + ';;')
+            qr = pq.create(f'WIFI:S:' + SSID_NAME + ';T:WPA;P:' + PASSPHRASE + ';;')
             print(qr.terminal())
             print ("Passphrase is: `" + PASSPHRASE + "` for user " + USERNAME)
 
